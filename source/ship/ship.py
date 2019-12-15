@@ -22,8 +22,13 @@ class Vessel(object):
     def target(self, other: Type[Vessel]):
         self.targeted = other
 
+    @property
+    def has_targeted(self):
+        return self.targeted is not None
+
     def fight(self):
         self.targeted.hp -= max([self.damage - other.armor - (self.distance(other) - self.range), 0])
+        self.targeted = None
         self.has_acted = True
 
     def distance(self, other):
