@@ -13,6 +13,7 @@ class Vessel(object):
         self.damage = 1
         self.size = 1, 1
         self.pos = 0, 0
+        self.signal = 1
         self.has_acted = False
 
     def fight(self, other):
