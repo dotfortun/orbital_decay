@@ -11,7 +11,8 @@ class TestVessel(TestCase):
         self.red.pos = 1, 0
 
     def test_fight(self):
-        self.blue.fight(self.red)
+        self.blue.target(self.red)
+        self.blue.fight()
         self.assertEqual(self.blue.hp, 1)
         self.assertEqual(self.red.hp, 0)
         self.assertFalse(self.blue.is_dead)
