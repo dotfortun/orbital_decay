@@ -16,7 +16,7 @@ class Vessel(object):
         self.has_acted = False
 
     def fight(self, other):
-        other.hp -= int(max([self.damage - other.armor - self.distance(other), 0]))
+        other.hp -= max([self.damage - other.armor - (self.distance(other) - self.range), 0])
         self.has_acted = True
 
     def distance(self, other):

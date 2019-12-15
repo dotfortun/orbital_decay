@@ -9,15 +9,8 @@ class TestVessel(TestCase):
         self.blue = Vessel()
         self.red = Vessel()
         self.red.pos = 1, 0
-        super().setUp()
 
     def test_fight(self):
-        self.blue.fight(self.red)
-        self.assertEqual(self.blue.hp, 1)
-        self.assertEqual(self.red.hp, 1)
-        self.assertFalse(self.blue.is_dead)
-        self.assertFalse(self.red.is_dead)
-        self.blue.move(1, 0)
         self.blue.fight(self.red)
         self.assertEqual(self.blue.hp, 1)
         self.assertEqual(self.red.hp, 0)
