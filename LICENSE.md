@@ -1,2 +1,2 @@
 
-Copyright (C) 2019 dotfortun
+Copyright (C) 2019 Shane Bell
