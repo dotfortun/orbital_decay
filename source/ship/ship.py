@@ -14,12 +14,16 @@ class Vessel(object):
         self.range = 1
         self.damage = 1
         self.size = namedtuple('Size', ['x', 'y'])
+        self.size.x = 1
+        self.size.y = 1
         self.pos = namedtuple('Position', ['x', 'y'])
+        self.pos.x = 1
+        self.pos.y = 1
         self.signal = 1
         self.has_acted = False
         self.targeted = None
 
-    def target(self, other: Type[Vessel]):
+    def target(self, other):
         self.targeted = other
 
     @property
@@ -27,13 +31,19 @@ class Vessel(object):
         return self.targeted is not None
 
     def fight(self):
-        self.targeted.hp -= max([self.damage - other.armor - (self.distance(other) - self.range), 0])
-        self.targeted = None
-        self.has_acted = True
+        if self.targeted is not None:
+            self.targeted.hp -= max([
+                self.damage - self.targeted.armor - (
+                        self.distance(self.targeted) - self.range
+                    ),
+                0
+            ])
+            self.targeted = None
+            self.has_acted = True
 
     def distance(self, other):
         return sqrt(
-            ((self.pos.x - other.pos.x) ** 2) + ((self.pos.y - other.posy) ** 2)
+            ((self.pos.x - other.pos.x) ** 2) + ((self.pos.y - other.pos.y) ** 2)
         )
 
     def move(self, x, y):
