@@ -45,8 +45,9 @@ class Vessel(object):
             ((self.pos.x - other.pos.x) ** 2) + ((self.pos.y - other.pos.y) ** 2)
         )
 
-    def move(self, x, y):
-        self.pos = x, y
+    def move(self, x: int, y: int):
+        self.pos.x = x
+        self.pos.y = y
 
     @property
     def is_dead(self):

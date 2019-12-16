@@ -1,13 +1,14 @@
 #  Copyright (c) Shane Bell 2019
 from typing import Type, List
 
+from source.ships.capital_ship import CapitalShip
 from source.ships.vessel import Vessel
 
 
-class Destroyer(Vessel):
+class Destroyer(CapitalShip):
     def __init__(self):
         super(Destroyer, self).__init__()
-        self.armor = 1
+        self.armor = 2
         self.max_hp = 4
         self.hp = 4
         self.speed = 3
@@ -18,20 +19,3 @@ class Destroyer(Vessel):
         self.signal = 4
         self.targeted = List[Vessel]
         self.max_targets = 2
-
-    def target(self, *others: Type[Vessel]):
-        for idx, shp in enumerate(others):
-            if idx >= self.max_targets:
-                break
-            self.targeted.append(shp)
-
-    def fight(self):
-        while len(self.targeted) > 0:
-            target = self.targeted.pop()
-            target.hp -= max([
-                self.damage - target.armor - (
-                        self.distance(target) - self.range
-                ),
-                0
-            ])
-        self.has_acted = True
