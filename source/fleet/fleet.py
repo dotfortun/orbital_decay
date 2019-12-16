@@ -1,4 +1,3 @@
-#  Copyright (c) Shane Bell 2019
 from math import sqrt, ceil
 from typing import List
 
