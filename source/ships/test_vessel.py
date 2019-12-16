@@ -8,7 +8,8 @@ class TestVessel(TestCase):
     def setUp(self) -> None:
         self.blue = Vessel()
         self.red = Vessel()
-        self.red.pos = 1, 0
+        self.red.pos.x = 1
+        self.red.pos.y = 0
 
     def test_fight(self):
         self.blue.target(self.red)

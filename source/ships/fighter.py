@@ -9,3 +9,5 @@ class Fighter(Vessel):
         self.pos.x = pos[0]
         self.pos.y = pos[1]
         self.speed = 5
+        self.max_hp = 2
+        self.hp = 2

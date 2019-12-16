@@ -8,6 +8,8 @@ class Destroyer(Vessel):
     def __init__(self):
         super(Destroyer, self).__init__()
         self.armor = 1
+        self.max_hp = 4
+        self.hp = 4
         self.speed = 3
         self.damage = 2
         self.range = 3
