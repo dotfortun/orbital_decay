@@ -6,11 +6,13 @@ from source.ships.vessel import Vessel
 
 
 class Fleet(object):
+    ships = List[Vessel]
+
     def __init__(self):
         self.name = ""
         self.owner = None
         self.location = None
-        self.ships = List[Vessel]
+        self.ships = []
 
     @property
     def signal_linear(self) -> int:

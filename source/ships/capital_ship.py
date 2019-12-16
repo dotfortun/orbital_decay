@@ -1,5 +1,8 @@
 #  Copyright (c) Shane Bell 2019
 
+import random
+from typing import Type
+
 from source.ships.vessel import Vessel
 
 
@@ -17,10 +20,11 @@ class CapitalShip(Vessel):
     def fight(self):
         while len(self.targeted) > 0:
             target = self.targeted.pop()
-            target.hp -= max([
-                self.damage - target.armor - (
-                        self.distance(target) - self.range
-                ),
-                0
-            ])
+            if random.random() > target.dodge:
+                target.hp -= max([
+                    self.damage - target.armor - (
+                            self.distance(target) - self.range
+                    ),
+                    0
+                ])
         self.has_acted = True

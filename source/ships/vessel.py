@@ -2,6 +2,7 @@
 
 from collections import namedtuple
 from math import sqrt
+import random
 
 
 class Vessel(object):
@@ -21,6 +22,7 @@ class Vessel(object):
         self.signal = 1
         self.has_acted = False
         self.targeted = None
+        self.dodge = 0
 
     def target(self, other):
         self.targeted = other
@@ -31,12 +33,13 @@ class Vessel(object):
 
     def fight(self):
         if self.targeted is not None:
-            self.targeted.hp -= max([
-                self.damage - self.targeted.armor - (
-                        self.distance(self.targeted) - self.range
-                ),
-                0
-            ])
+            if random.random() > self.targeted.dodge:
+                self.targeted.hp -= max([
+                    self.damage - self.targeted.armor - (
+                            self.distance(self.targeted) - self.range
+                    ),
+                    0
+                ])
             self.targeted = None
             self.has_acted = True
 
