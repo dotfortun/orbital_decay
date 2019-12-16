@@ -1,13 +1,13 @@
-#  Copyright (c) Shane Bell 2019
 from typing import Type, List
 
-from source.ships.capital_ship import CapitalShip
-from source.ships.vessel import Vessel
+from game.ships.capital_ship import CapitalShip
+from game.ships.vessel import Vessel
 
 
 class Destroyer(CapitalShip):
     def __init__(self):
         super(Destroyer, self).__init__()
+        self.name = "D"
         self.armor = 2
         self.max_hp = 4
         self.hp = 4

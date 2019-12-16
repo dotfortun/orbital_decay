@@ -1,7 +1,8 @@
 from collections import namedtuple
+from itertools import islice
 from typing import Type
 
-from source.fleet.fleet import Fleet
+from game.fleet.fleet import Fleet
 
 
 class Grid(object):
@@ -14,3 +15,11 @@ class Grid(object):
         for ship in self.red.ships:
             ship.pos.x = self.size.x - ship.pos.x
             ship.pos.y = self.size.y - ship.pos.y
+
+    def __repr__(self):
+        def chunk(it, size):
+            return iter(lambda: tuple(islice(iter(it), size)), ())
+        rep = ["."] * self.size.x * self.size.y
+        for ship in self.red.ships + self.blue.ships:
+            rep[ship.pos.x * self.size.x + ship.pos.y] = ship.name
+        return '\n'.join([''.join(x) for x in chunk(rep, self.size.y)])

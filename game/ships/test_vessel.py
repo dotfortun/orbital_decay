@@ -1,5 +1,5 @@
 from unittest import TestCase
-from source.ships.vessel import Vessel
+from game.ships.vessel import Vessel
 
 
 class TestVessel(TestCase):

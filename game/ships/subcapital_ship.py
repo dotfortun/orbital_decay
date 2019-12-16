@@ -1,4 +1,4 @@
-from source.ships.vessel import Vessel
+from game.ships.vessel import Vessel
 
 
 class SubcapitalShip(Vessel):

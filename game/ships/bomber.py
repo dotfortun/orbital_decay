@@ -1,9 +1,10 @@
-from source.ships.subcapital_ship import SubcapitalShip
+from game.ships.subcapital_ship import SubcapitalShip
 
 
 class Bomber(SubcapitalShip):
     def __init__(self):
         super(Bomber, self).__init__()
+        self.name = "b"
         self.max_hp = 2
         self.hp = 0
         self.armor = 1

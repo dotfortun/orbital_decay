@@ -1,7 +1,7 @@
 import random
 from typing import Type
 
-from source.ships.vessel import Vessel
+from game.ships.vessel import Vessel
 
 
 class CapitalShip(Vessel):

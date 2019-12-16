@@ -4,6 +4,23 @@ import random
 
 
 class Vessel(object):
+    max_hp = 1
+    hp = int(max_hp)
+    armor = 0
+    speed = 1
+    range = 1
+    damage = 1
+    size = namedtuple('Size', ['x', 'y'])
+    size.x = 1
+    size.y = 1
+    pos = namedtuple('Position', ['x', 'y'])
+    pos.x = 1
+    pos.y = 1
+    signal = 1
+    has_acted = False
+    targeted = None
+    dodge = 0
+
     def __init__(self):
         self.max_hp = 1
         self.hp = int(self.max_hp)

@@ -1,6 +1,6 @@
 from unittest import TestCase
-from source.fleet.fleet import Fleet
-from source.ships.vessel import Vessel
+from game.fleet.fleet import Fleet
+from game.ships.vessel import Vessel
 
 
 class TestFleet(TestCase):
