@@ -1,5 +1,3 @@
-#  Copyright (c) Shane Bell 2019
-
 from source.fleet.fleet import Fleet
 from source.grid.grid import Grid
 

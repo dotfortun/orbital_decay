@@ -1,5 +1,3 @@
-#  Copyright (c) Shane Bell 2019
-
 from collections import namedtuple
 from typing import Type
 

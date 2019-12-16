@@ -1,5 +1,3 @@
-#  Copyright (c) Shane Bell 2019
-
 from unittest import TestCase
 from source.ships.vessel import Vessel
 

@@ -1,5 +1,3 @@
-#  Copyright (c) Shane Bell 2019
-
 import random
 from typing import Type
 

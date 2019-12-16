@@ -1,5 +1,3 @@
-#  Copyright (c) Shane Bell 2019
-
 from source.ships.subcapital_ship import SubcapitalShip
 
 
