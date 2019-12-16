@@ -2,7 +2,7 @@
 
 from unittest import TestCase
 from source.fleet.fleet import Fleet
-from source.ship.ship import Vessel
+from source.ships.vessel import Vessel
 
 
 class TestFleet(TestCase):

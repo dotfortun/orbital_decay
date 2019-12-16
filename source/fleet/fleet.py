@@ -2,7 +2,7 @@
 from math import sqrt, ceil
 from typing import List
 
-from source.ship.ship import Vessel
+from source.ships.vessel import Vessel
 
 
 class Fleet(object):
