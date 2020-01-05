@@ -6,7 +6,7 @@ from game.ships.vessel import Vessel
 
 class Destroyer(CapitalShip):
     def __init__(self):
-        super(Destroyer, self).__init__()
+        super().__init__()
         self.name = "D"
         self.armor = 2
         self.max_hp = 4

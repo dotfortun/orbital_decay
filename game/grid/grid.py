@@ -1,5 +1,5 @@
 from collections import namedtuple
-from itertools import islice
+from itertools import zip_longest
 from typing import Type
 
 from game.fleet.fleet import Fleet
@@ -17,9 +17,8 @@ class Grid(object):
             ship.pos.y = self.size.y - ship.pos.y
 
     def __repr__(self):
-        def chunk(it, size):
-            return iter(lambda: tuple(islice(iter(it), size)), ())
         rep = ["."] * self.size.x * self.size.y
         for ship in self.red.ships + self.blue.ships:
-            rep[ship.pos.x * self.size.x + ship.pos.y] = ship.name
-        return '\n'.join([''.join(x) for x in chunk(rep, self.size.y)])
+            rep[ship.pos.y * self.size.y + ship.pos.x] = ship.name
+        rep = [iter(rep)] * self.size.x
+        return '\n'.join([''.join(x) for x in zip_longest(*rep, fillvalue='')])

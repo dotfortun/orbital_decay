@@ -6,7 +6,7 @@ from game.ships.vessel import Vessel
 
 class CapitalShip(Vessel):
     def __init__(self):
-        super(CapitalShip, self).__init__()
+        super().__init__()
         self.max_targets = 1
 
     def target(self, *others: Type[Vessel]):

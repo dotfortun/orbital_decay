@@ -29,7 +29,6 @@ for idx, ship in enumerate(blu.ships):
     ship.move(idx, 5)
 for ship in red.ships:
     ship.move(5, 2)
-print([(x.name, x.pos.x, x.pos.y) for x in red.ships + blu.ships])
 
-# grid = Grid(red, blu)
-# print(grid)
+grid = Grid(red, blu)
+print(grid)
