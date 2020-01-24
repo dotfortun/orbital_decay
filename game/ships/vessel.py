@@ -1,6 +1,5 @@
 from collections import namedtuple
 from math import sqrt
-import random
 
 
 class Vessel(object):
