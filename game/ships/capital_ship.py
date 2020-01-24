@@ -8,6 +8,7 @@ class CapitalShip(Vessel):
     def __init__(self):
         super().__init__()
         self.max_targets = 1
+        self.armor = 0
 
     def target(self, *others: Type[Vessel]):
         for idx, shp in enumerate(others):
@@ -15,14 +16,8 @@ class CapitalShip(Vessel):
                 break
             self.targeted.append(shp)
 
-    def fight(self):
-        while len(self.targeted) > 0:
-            target = self.targeted.pop()
-            if random.random() > target.dodge:
-                target.hp -= max([
-                    self.damage - target.armor - (
-                            self.distance(target) - self.range
-                    ),
-                    0
-                ])
-        self.has_acted = True
+    def defend(self, dmg: int):
+        self.hp -= max([
+            dmg - self.armor,
+            0
+        ])

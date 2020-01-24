@@ -10,8 +10,7 @@ class TestVessel(TestCase):
         self.red.pos.y = 0
 
     def test_fight(self):
-        self.blue.target(self.red)
-        self.blue.fight()
+        self.blue.attack(self.red)
         self.assertEqual(self.blue.hp, 1)
         self.assertEqual(self.red.hp, 0)
         self.assertFalse(self.blue.is_dead)

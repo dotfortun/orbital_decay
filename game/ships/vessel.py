@@ -24,7 +24,6 @@ class Vessel(object):
     def __init__(self):
         self.max_hp = 1
         self.hp = int(self.max_hp)
-        self.armor = 0
         self.speed = 1
         self.range = 1
         self.damage = 1
@@ -37,7 +36,6 @@ class Vessel(object):
         self.signal = 1
         self.has_acted = False
         self.targeted = None
-        self.dodge = 0
 
     def target(self, other):
         self.targeted = other
@@ -45,18 +43,6 @@ class Vessel(object):
     @property
     def has_targeted(self):
         return self.targeted is not None
-
-    def fight(self):
-        if self.targeted is not None:
-            if random.random() > self.targeted.dodge:
-                self.targeted.hp -= max([
-                    self.damage - self.targeted.armor - (
-                            self.distance(self.targeted) - self.range
-                    ),
-                    0
-                ])
-            self.targeted = None
-            self.has_acted = True
 
     def distance(self, other):
         return sqrt(
@@ -70,3 +56,14 @@ class Vessel(object):
     @property
     def is_dead(self):
         return self.hp <= 0
+
+    def attack(self, other):
+        other.defend(max([
+            self.damage - (
+                self.distance(other) - self.range
+            ),
+            0
+        ]))
+
+    def defend(self, dmg: int):
+        self.hp -= dmg

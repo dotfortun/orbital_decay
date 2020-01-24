@@ -24,14 +24,11 @@ class TestFleet(TestCase):
 
     def test_combat(self):
         for idx, shp in enumerate(self.red.ships):
-            shp.target(self.blue.ships[idx])
-            self.blue.ships[idx].target(shp)
-        self.assertFalse(all([x.is_dead for x in self.blue.ships] + [x.is_dead for x in self.red.ships]))
-        self.blue.fight()
-        self.red.fight()
+            shp.attack(self.blue.ships[idx])
+            self.blue.ships[idx].attack(shp)
+        self.assertTrue(all([x.is_dead for x in self.blue.ships] + [x.is_dead for x in self.red.ships]))
         self.assertEqual(len(self.blue.ships), 10)
         self.assertEqual(len(self.red.ships), 10)
-        self.assertTrue(all([x.is_dead for x in self.blue.ships] + [x.is_dead for x in self.red.ships]))
         self.blue.cleanup()
         self.red.cleanup()
         self.assertEqual(len(self.blue.ships), 0)
